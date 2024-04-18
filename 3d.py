@@ -18,7 +18,7 @@ dist = ["Alappuzha",
     "Kasaragod"]
 selected_dist = st.selectbox("Select a district", dist)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2, gap="large")
 
 
 if selected_dist == "Alappuzha":
@@ -109,7 +109,7 @@ if selected_dist == "Idukki":
 
 if selected_dist == "Malappuram":
     years = [2017, 2018, 2019, 2020, 2021]
-    deaths = [20829 ,19255, 22433, 3200, 4000]
+    deaths = [20829, 19255, 22433, 21608, 29201]
 
     with col1:
         st.header("Year vs Death")
@@ -146,7 +146,7 @@ if selected_dist == "Thrissur":
 
 if selected_dist == "Kozhikode":
     years = [2017, 2018, 2019, 2020, 2021]
-    deaths = [26398, 3000, 5000, 3200, 4000]
+    deaths = [26398, 27197, 27711, 24813, 34926]
 
     with col1:
         st.header("Year vs Death")
@@ -159,7 +159,7 @@ if selected_dist == "Kozhikode":
 
 if selected_dist == "Wayanad":
     years = [2017, 2018, 2019, 2020, 2021]
-    deaths = [4492,3000, 5000, 3200, 4000]
+    deaths = [4492, 5003, 4762, 4717, 5824]
 
     with col1:
         st.header("Year vs Death")
@@ -172,7 +172,7 @@ if selected_dist == "Wayanad":
 
 if selected_dist == "Kannur":
     years = [2017, 2018, 2019, 2020, 2021]
-    deaths = [18346, 3000, 5000, 3200, 4000]
+    deaths = [18346, 19069, 19800, 19489, 24672]
 
     with col1:
         st.header("Year vs Death")
@@ -185,7 +185,7 @@ if selected_dist == "Kannur":
 
 if selected_dist == "Kasaragod":
     years = [2017, 2018, 2019, 2020, 2021]
-    deaths = [7273, 3000, 5000, 3200, 4000]
+    deaths = [7273, 7568, 7796, 7989, 9485]
 
     with col1:
         st.header("Year vs Death")
@@ -194,9 +194,6 @@ if selected_dist == "Kasaragod":
     with col2:
         st.header("Year vs Property Loss")
         st.bar_chart(data={'Years': years, 'Deaths': deaths})
-
-
-
 
 
 st.subheader("Kerala Flood 2018")
@@ -229,6 +226,27 @@ labelsData13=[{'lat': 11.86, 'lng': 75.39, 'size': 0.1, 'color': 'red', 'text': 
 pointsData14=[{'lat': 12.48, 'lng': 74.90, 'size': 0.2, 'color': 'red'}]
 labelsData14=[{'lat': 12.48, 'lng': 74.90, 'size': 0.2, 'color': 'red', 'text': 'Kasaragod'}]
 pointsData = pointsData1 + pointsData2 + pointsData3 + pointsData4 +pointsData5 + pointsData6 +pointsData7 + pointsData8 +pointsData9 + pointsData10 +pointsData11 + pointsData12  + pointsData13 + pointsData14
-labelsData = labelsData1 + labelsData2 + labelsData3 + labelsData4 +labelsData5 + labelsData6 +labelsData7 + labelsData8 +labelsData9 + labelsData10 +labelsData11 + labelsData12  + labelsData13 + labelsData14
-streamlit_globe(pointsData=pointsData, labelsData=labelsData, daytime='day', width=800, height=600)
+labelsData = (
+    labelsData1
+    + labelsData2
+    + labelsData3
+    + labelsData4
+    + labelsData5
+    + labelsData6
+    + labelsData7
+    + labelsData8
+    + labelsData9
+    + labelsData10
+    + labelsData11
+    + labelsData12
+    + labelsData13
+    + labelsData14
+)
 
+streamlit_globe(
+    pointsData=pointsData,
+    labelsData=labelsData,
+    daytime="day",
+    width=800,
+    height=600,
+)
